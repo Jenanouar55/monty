@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <stdio.h>
 
 /**
  * f_pall - Print all values on the stack
@@ -10,11 +11,14 @@
  */
 void f_pall(stack_t **head, unsigned int counter)
 {
-	stack_t *c = *head;
+	stack_t *c; 
+	(void)counter;
+
+	c = *head;
 
 	while (c != NULL)
 	{
-		printf("%d\n", current->n);
+		printf("%d\n", c->n);
 		c = c->next;
 	}
 }
