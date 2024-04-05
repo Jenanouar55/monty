@@ -40,20 +40,21 @@ typedef struct instruction_s
 } instruction_t;
 
 /* Global variable*/
-typedef struct {
+typedef struct global_s{
 	char *arg;
 	FILE *file;
-	char *content;
-	int lifi;
-} bus_t;
-extern bus_t bus;
+	char *line;
+} glob_t;
+extern glob_t glob;
 
 /* Function prototypes */
-void f_push(stack_t **head, unsigned int counter);
-void f_pall(stack_t **head, unsigned int counter);
+void f_push(stack_t **head, unsigned int c);
+void f_pall(stack_t **head, unsigned int c);
 void free_stack(stack_t *head);
 void addnode(stack_t **head, int value);
 void addqueue(stack_t **head, int value);
 
+/* Stack helper functions */
+int is_valid_n(char *s);
 #endif /* MONTY_H */
 
