@@ -55,22 +55,30 @@ typedef struct global_variable
 
 extern global_var var_global;
 
+void read_file(char *filename, stack_t **stack);
+char *parse_line(char *line, stack_t **stack, unsigned int line_number);
 typedef void (*instruct_func)(stack_t **stack, unsigned int line_number);
+instruct_func get_op_func(char *str);
 
-
-/*Fuxntions Monty*/
-void _pall(stack_t **stack, unsigned int line_number);
-void _push(stack_t **stack, unsigned int line_number);
+/*Funtions Monty*/
+void fpall(stack_t **stack, unsigned int line_number);
+void fpush(stack_t **stack, unsigned int line_number);
+void fpint(stack_t **stack, unsigned int line_number);
+void fpop(stack_t **stack, unsigned int line_number);
+void fswap(stack_t **stack, unsigned int line_number);
+void fnop(stack_t **stack, unsigned int line_number);
+void frotl(stack_t **stack, unsigned int line_number);
+void frotr(stack_t **stack, unsigned int line_number);
 
 /*Functions string ascci */
-void _pchar(stack_t **stack, unsigned int line_number);
-void _pstr(stack_t **stack, unsigned int line_number);
+void fpchar(stack_t **stack, unsigned int line_number);
+void fpstr(stack_t **stack, unsigned int line_number);
 
 /*Functions math*/
-void _sub(stack_t **stack, unsigned int line_number);
-void _add(stack_t **stack, unsigned int line_number);
-void _mul(stack_t **stack, unsigned int line_number);
-void _div(stack_t **stack, unsigned int line_number);
+void fsub(stack_t **stack, unsigned int line_number);
+void fadd(stack_t **stack, unsigned int line_number);
+void fmul(stack_t **stack, unsigned int line_number);
+void fdiv(stack_t **stack, unsigned int line_number);
 void _mod(stack_t **stack, unsigned int line_number);
 
 /*Utility functions*/
@@ -78,4 +86,4 @@ void free_dlistint(stack_t *head);
 void dobfree(stack_t **stack);
 void dobfree2(stack_t **stack);
 int _isalpha(int c);
-#endif
+#endif /* MONTY.H */
